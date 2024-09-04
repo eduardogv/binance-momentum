@@ -1,0 +1,68 @@
+Binance API SPOT doc:
+https://developers.binance.com/docs/binance-spot-api-docs/README
+
+
+
+Binance API DERIV doc:
+https://developers.binance.com/docs/derivatives/Introduction
+
+TODO:
+
+- Creación de API Binance personal y publica(para dejar en el GitHub)
+- Prueba Postman al API de derivados
+	- obtener saldo de la cuenta
+	- obtener velas historicas H1 de binance del ultimo mes.
+- Definir el 
+- 
+
+
+ALGO de trading
+
+- Considera que la resolucion de velas tal vez no es suficiente en H1. Validalo con el ejemplo del Lunes 19Agosto en BTC PERP.
+- En realcion a lo anterior, tal vez vale la pena que la definicion de high y low se realice en un timeframe menor y no en H1 (m5?). Validado con el video de Mayne, el low y high del monday hacerlo con velas diarias, por algun motivo ahi ya no importa el timezone.
+- Todo va a depende de a que dia corresponde la ultima vela del rango de lunes, es de Lunes o es de Martes?
+
+
+======================================================================
+
+NUEVA IDEA:
+Hacer el market strenght detector similar al que tengo en Telegram.
+Como incluyo el procesamiento con Django y la BD aqui?
+
+ANSEM instructions:
+
+- Go thru top 200 alts by volume on binance
+- Marca el low de Julio 5 y August 5
+- Mira que coins estan haciendo higher LOWS en su par altbtc y atleth
+- Toma las 20 del top de ROI desde el bottom
+- Investiga FA en todas y escoge las top 5
+
+
+Prompt  inicial para Claude:
+
+Escribe una función de Python llamada get_top_volume_coins_list(count=200) que use la API de Binance y retorne una lista de  200 (valor de count por defecto) cryptomonedas con mayor volumen diario promedio en los últimos 7 días. La lista a retornar deberá estar ordenada de mayor a menor volumen.
+Adicionalmente crear una función llamada get_top_volume_coins_df(count=200) que haga lo mismo pero retorne un dataframe de pandas, con una columna "coin" y una columna "average volumen last 7 days", ordenada también de mayor a menor volumen.
+
+Prompt para obtener el low :
+
+Escribe una funcion python reciba como argumento lo siguiente:
+- Lista de nombres de cryptomonedas, nombre de variable "crypto_list".
+- Periodo de lookback definido como dias, nombre de variable "loopback"
+- Fecha de referencia para calculo de diferencia, nombre de variable "reference_low" que debe ser una fecha en el formato "DD-MM-YYYY"
+
+La funcion debe obtener las velas diarias de SPOT  (no derivados o futuros) de los últimos "loopback" días de cada moneda. Estas velas deberan ser guardadas en un dataframe independiente para cada cryptomoneda, bajo el formato de nombre "{COIN}_DF_{LOOPBACK}"
+Estos dataframes deben ser guardados como csv en una carpeta llamada "data" dentro de la carpeta raiz donde se corre el script.
+La funcion finalmente debera retornar una lista de dataframes, uno para cada criiptomoneda.
+
+Luego crear una funcion llamada create_db() que reciba como argumento la lista de cryptomonedas y cree una base de datos sqlite3 llamada "crypto_db.db"
+
+
+
+
+
+
+
+
+
+
+
