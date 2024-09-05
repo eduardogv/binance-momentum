@@ -58,6 +58,16 @@ Luego crear una funcion llamada create_db() que reciba como argumento la lista d
 
 
 
+PROMPT para analizar el pivot low:
+Excelente. Ahora necesito que crees otra función llamada analyze_momentum(pivot_low_date, reference_high_date) que lea todos los archivos csv de la carpeta data y cree un único dataframe, donde cree una fila por cada moneda. pivot_low_date es una string que representa una fecha en el formato "DD-MM-YYYY". Crear las siguientes columnas que cumplan lo siguiente:
+- pivot_low : Indica el "low" de la vela diaria con fecha de la variable argumento de la funcion "pivot_low_date" 
+- max_high: Indica el "high" más alto de entre todas las velas diarias posterior a la fecha de la variable "pivot_low_date" 
+- reference_high: Indica el "high" de la vela diaria con fecha de la variable argumento de la funcion "reference_high_date"
+- change_pct: Indica el porcentaje de cambio entre el pivot_low y el reference_high
+
+Finalmente, debera ordenar el dataframe por la columna "change_pct" de mayor a menor y retornar el dataframe ordenado.
+
+
 
 
 
