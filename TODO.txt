@@ -6,15 +6,6 @@ https://developers.binance.com/docs/binance-spot-api-docs/README
 Binance API DERIV doc:
 https://developers.binance.com/docs/derivatives/Introduction
 
-TODO:
-
-- Creación de API Binance personal y publica(para dejar en el GitHub)
-- Prueba Postman al API de derivados
-	- obtener saldo de la cuenta
-	- obtener velas historicas H1 de binance del ultimo mes.
-- Definir el 
-- 
-
 
 ALGO de trading
 
@@ -25,25 +16,31 @@ ALGO de trading
 
 ======================================================================
 
-NUEVA IDEA:
+NUEVA IDEA 1:
 Hacer el market strenght detector similar al que tengo en Telegram.
 Como incluyo el procesamiento con Django y la BD aqui?
 
-ANSEM instructions:
+
+NUEVA IDEA 2: 
+Automatizar la tarea de Ansem y ponerla en una interfaz web.
+"ANSEM instructions:
 
 - Go thru top 200 alts by volume on binance
 - Marca el low de Julio 5 y August 5
 - Mira que coins estan haciendo higher LOWS en su par altbtc y atleth
 - Toma las 20 del top de ROI desde el bottom
 - Investiga FA en todas y escoge las top 5
+"
 
+Adicionales:
+- Incluir la idea de la linea de regresion lineal que habla Scott Phillips. Revisar el video pero coge los 5 mejores coins de un basket total basado en la classificacion de fuerza de su par BTC (SOLBTC). La idea sería incluir e el dataframe resultante el analiss de par BTC de las monedas con mayor volumen en binance. 
 
-Prompt  inicial para Claude:
+PROMPT  inicial para Claude:
 
 Escribe una función de Python llamada get_top_volume_coins_list(count=200) que use la API de Binance y retorne una lista de  200 (valor de count por defecto) cryptomonedas con mayor volumen diario promedio en los últimos 7 días. La lista a retornar deberá estar ordenada de mayor a menor volumen.
 Adicionalmente crear una función llamada get_top_volume_coins_df(count=200) que haga lo mismo pero retorne un dataframe de pandas, con una columna "coin" y una columna "average volumen last 7 days", ordenada también de mayor a menor volumen.
 
-Prompt para obtener el low :
+PROMPT para obtener el low :
 
 Escribe una funcion python reciba como argumento lo siguiente:
 - Lista de nombres de cryptomonedas, nombre de variable "crypto_list".
