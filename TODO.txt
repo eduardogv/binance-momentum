@@ -20,6 +20,7 @@ NUEVA IDEA 1:
 Hacer el market strenght detector similar al que tengo en Telegram.
 Como incluyo el procesamiento con Django y la BD aqui?
 
+======================================================================
 
 NUEVA IDEA 2: 
 Automatizar la tarea de Ansem y ponerla en una interfaz web.
@@ -64,10 +65,21 @@ Excelente. Ahora necesito que crees otra función llamada analyze_momentum(pivot
 
 Finalmente, debera ordenar el dataframe por la columna "change_pct" de mayor a menor y retornar el dataframe ordenado.
 
+=======================================================================
 
+NUEVA IDEA 3
 
+Aplicar la estrategia de protfolio rebalancing de Scott Phillips
 
-
+[X]- Empiezo por escoger las 200 monedas con mayor volumen de Binance
+[ ]- Obtenego la data de su valor comparado contra su par BTC, ej SOLBTC
+[ ]- Ploteo en un spaggetti plot los valores de momentum de cada una de las monedas. Esto se muestra en la webapp.
+[ ]- Escojo las 5 monedas con mayor momentum en el par BTC. Esto se hace calculando la regresion lineal y comparando la pendiente o slope de todas con su slope de la semana anterior.
+[ ]- Muestro en la web las monedas que tengo esta semana
+[ ]- Muestro en la web las monedas que tenia la semana anterior.
+[ ]- Muestro en la web el contador de tiempo que queda para el siguiente rebalanceo (javascript?)
+[ ]- Muestro en la web el portfolio en una pie chart?
+[ ]- Muestro en la web el 
 
 
 
