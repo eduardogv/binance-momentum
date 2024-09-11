@@ -20,7 +20,7 @@ El edge radica en holdear estos activos que tienen un performance superior a la 
     
     - TODO: 
         - [x] Crear otro notebook para analizar Ansem y copiar ahi la funcion que tengo.
-        - [ ] Eliminar de la función la fecha de referencia, la fecha low pero mantener el loopback en dias.
+        - [x] Eliminar de la función la fecha de referencia, la fecha low pero mantener el loopback en  semanas.
         - [ ] Cambiar el request usando el wraper y cambiarlo para que use la API (mejor para CS50)
         - [ ] Afinar el filtro de stablecoins y monedas que son sats.
         - [ ] Opcionalmente debo crear bases de datos (previamente creadas en django). 
