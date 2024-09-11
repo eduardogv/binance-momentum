@@ -19,8 +19,9 @@ El edge radica en holdear estos activos que tienen un performance superior a la 
     - La funcion actualmente usa una fecha de referencia y un lookback (en dias) para calcular la fecha de inicio de la obtencion de datos. Esto me parece demasiado complicado, además hace referencia a la antigua version de hacer la tarea de Ansem (comparar los lows de agosto y julio para luego checar cual es el que subio más)
     
     - TODO: 
-        - [ ] Crear otro notebook para analizar Ansem y copiar ahi la funcion que tengo.
+        - [x] Crear otro notebook para analizar Ansem y copiar ahi la funcion que tengo.
         - [ ] Eliminar de la función la fecha de referencia, la fecha low pero mantener el loopback en dias.
+        - [ ] Cambiar el request usando el wraper y cambiarlo para que use la API (mejor para CS50)
         - [ ] Afinar el filtro de stablecoins y monedas que son sats.
         - [ ] Opcionalmente debo crear bases de datos (previamente creadas en django). 
 
