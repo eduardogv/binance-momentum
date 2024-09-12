@@ -21,12 +21,12 @@ El edge radica en holdear estos activos que tienen un performance superior a la 
     - TODO: 
         - [x] Crear otro notebook para analizar Ansem y copiar ahi la funcion que tengo.
         - [x] Eliminar de la función la fecha de referencia, la fecha low pero mantener el loopback en  semanas.
-        - [ ] Cambiar el request usando el wraper y cambiarlo para que use la API (mejor para CS50)
-        - [ ] Debo anadir una fecha fin en la funcion, para que solo tenga la data de una semana.
+        - [x] Agregar una fecha de termino de la busqueda.
+        - [x] Cambiar el request usando el wraper y cambiarlo para que use la API (mejor para CS50)
         - [ ] Afinar el filtro de stablecoins y monedas que son sats.
         - [ ] Opcionalmente debo crear bases de datos (previamente creadas en django). 
 
-3. Leer cada archivo .csv y crear un df para cada uno. 
+3. Data Processing: Leer cada archivo .csv y crear un df para cada uno. 
     - TODO:
         - [ ] Crear una columna en el df que mida el slope de los ultimos 7 dias(que deberia ser el total de velas que tengo). El slope es una regresion lineal del precio de cierre de cada vela diaria de los ultimos 7 dias. VALIDAR con el video de Scott nuevamente.
         - [ ] Crear una columna en el df que mida el cambio porcentual entre semana.
