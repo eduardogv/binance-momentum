@@ -84,4 +84,41 @@ Aplicar la estrategia de protfolio rebalancing de Scott Phillips
 
 
 
+PROMPT para analziar la regresion lineal:
 
+
+Tengo una carpeta con varios archivos .csv que son dataframes con datos de velas diarias de varias criptomonedas. el nombre de la criptomoneda esta en el nombre del archivo, por ejemplo este es uno de ellos: ETHBTC y el contenido es:
+
+timestamp,open,high,low,close,volume
+2024-09-02,0.04235,0.0434,0.04231,0.04291,21882.9779
+2024-09-03,0.04291,0.04294,0.04204,0.04218,15037.3213
+2024-09-04,0.04219,0.04274,0.04128,0.04226,31515.7841
+2024-09-05,0.04226,0.04245,0.04181,0.04216,17020.4826
+2024-09-06,0.04217,0.04258,0.04085,0.04123,46145.7447
+2024-09-07,0.04124,0.04227,0.04123,0.04199,20385.5488
+2024-09-08,0.04198,0.04229,0.04175,0.04186,18918.658
+
+
+Escribe una funcion python que lea todos los archivos csv de la carpeta /data y retorne en un solo dataframe maestro el analisis mediante regresion lineal de la tasa de cambio. Los campos que debera tener son:
+
+| coin    | return | intercept | slope |
+
+| ------- | ------ | --------- | ----- |
+
+| ETHBTC  |        |           |       |
+
+| SOLBTC  |        |           |       |
+
+| DOGEBTC |        |           |       |
+
+donde:
+
+return: indica el cambio porcentual entre el open de la primera vela y el close de la ultima.
+
+intercept: Valor intercept resultado del analisis de la regresion linea
+
+slope: Valor del slope de la regresion lineal
+
+Finalmente, el dataframe debe estar ordenado de mayor a menor de acuerdo al slope.
+
+=======================================================================

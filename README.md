@@ -23,14 +23,25 @@ El edge radica en holdear estos activos que tienen un performance superior a la 
         - [x] Eliminar de la función la fecha de referencia, la fecha low pero mantener el loopback en  semanas.
         - [x] Agregar una fecha de termino de la busqueda.
         - [x] Cambiar el request usando el wraper y cambiarlo para que use la API (mejor para CS50)
-        - [ ] Afinar el filtro de stablecoins y monedas que son sats.
-        - [ ] Opcionalmente debo crear bases de datos (previamente creadas en django). 
+        - [ ] Afinar el filtro de stablecoins y monedas que son sats. AL FINAL, hacerlo desde la lista y manualmente.
+        - [ ] Opcionalmente debo crear bases de datos (previamente creadas en django). AL FINAL, definir como se hará, ahorita no tengo npi.
 
 3. Data Processing: Leer cada archivo .csv y crear un df para cada uno. 
     - TODO:
-        - [ ] Crear una columna en el df que mida el slope de los ultimos 7 dias(que deberia ser el total de velas que tengo). El slope es una regresion lineal del precio de cierre de cada vela diaria de los ultimos 7 dias. VALIDAR con el video de Scott nuevamente.
-        - [ ] Crear una columna en el df que mida el cambio porcentual entre semana.
-        - [ ] Ordenar de mayor a menor de acuerdo al slope. La tesis es que el de mayor slope indica mayor momentum y por ende este momentum se debe mantener la siguiente semana.
+        - [x] Limpiar el df, solo dejar ohlc y volume?
+
+| close | return | atr | atr_bzscore | slope | intercept | r_squared | slope_ratio | rating past week? | return |
+
+        - [ ] Crear una columna en el df que mida el slope e intercept de los ultimos 7 dias(que deberia ser el total de velas que tengo, independiente de si son de 1 o mas semanas). Luego ordenar el df de acuerdo a los slopes de mayor a menor, indicando asi las que mejor performance tuvieron.
+
+        | coin    | return(this week) | intercept | slope |
+        | ------- | ----------------- | --------- | ----- |
+        | ETHBTC  |                   |           |       |
+        | SOLBTC  |                   |           |       |
+        | DOGEBTC |                   |           |       |
+
+        - [ ] Crear una columna en el df que mida el cambio porcentual entre semana. Esto se calcula entre el open de la primera vela y el close de la ultima vela.
+
 
 4. OPCIONAL: Crear una BD por cada df, revisar cual es la mejor manera. 
     En realidad todo el analisis deberia hacerse creando df a partir de la bd que hemos creado, pero en realidad no le veo uso real los dataframe son superiores y guardarlo en .pkl o .csv es suficiente.
@@ -44,7 +55,6 @@ El edge radica en holdear estos activos que tienen un performance superior a la 
 2. Mostrar la grafica de BTC y su slope como medicion base.
 3. Mostrar las 5 graficas de las altcoins seleccionadas y su slope.
 4. Mostrar una tabla con las 5 coins seleccionadas, su cambio porcentual y su slope.
-
 
 
 
