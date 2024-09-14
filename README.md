@@ -23,8 +23,7 @@ El edge radica en holdear estos activos que tienen un performance superior a la 
         - [x] Eliminar de la función la fecha de referencia, la fecha low pero mantener el loopback en  semanas.
         - [x] Agregar una fecha de termino de la busqueda.
         - [x] Cambiar el request usando el wraper y cambiarlo para que use la API (mejor para CS50)
-        - [ ] Afinar el filtro de stablecoins y monedas que son sats. AL FINAL, hacerlo desde la lista y manualmente.
-        - [ ] Opcionalmente debo crear bases de datos (previamente creadas en django). AL FINAL, definir como se hará, ahorita no tengo npi.
+        - [ ] Se estan guardando csv que no tienen data, limpiar. Validar en el if status==200 tambien validar la longitud de la respuesta.
 
 3. Data Processing: Leer cada archivo .csv y crear un df para cada uno. 
     - TODO:
@@ -32,7 +31,7 @@ El edge radica en holdear estos activos que tienen un performance superior a la 
 
 | close | return | atr | atr_bzscore | slope | intercept | r_squared | slope_ratio | rating past week? | return |
 
-        - [ ] Crear una columna en el df que mida el slope e intercept de los ultimos 7 dias(que deberia ser el total de velas que tengo, independiente de si son de 1 o mas semanas). Luego ordenar el df de acuerdo a los slopes de mayor a menor, indicando asi las que mejor performance tuvieron.
+        - [x] Crear una columna en el df que mida el slope e intercept de los ultimos 7 dias(que deberia ser el total de velas que tengo, independiente de si son de 1 o mas semanas). Luego ordenar el df de acuerdo a los slopes de mayor a menor, indicando asi las que mejor performance tuvieron.
 
         | coin    | return(this week) | intercept | slope |
         | ------- | ----------------- | --------- | ----- |
@@ -40,7 +39,7 @@ El edge radica en holdear estos activos que tienen un performance superior a la 
         | SOLBTC  |                   |           |       |
         | DOGEBTC |                   |           |       |
 
-        - [ ] Crear una columna en el df que mida el cambio porcentual entre semana. Esto se calcula entre el open de la primera vela y el close de la ultima vela.
+        - [x] Crear una columna en el df que mida el cambio porcentual entre semana. Esto se calcula entre el open de la primera vela y el close de la ultima vela.
 
 
 4. OPCIONAL: Crear una BD por cada df, revisar cual es la mejor manera. 
