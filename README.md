@@ -28,9 +28,6 @@ El edge radica en holdear estos activos que tienen un performance superior a la 
 3. Data Processing: Leer cada archivo .csv y crear un df para cada uno. 
     - TODO:
         - [x] Limpiar el df, solo dejar ohlc y volume?
-
-| close | return | atr | atr_bzscore | slope | intercept | r_squared | slope_ratio | rating past week? | return |
-
         - [x] Crear una columna en el df que mida el slope e intercept de los ultimos 7 dias(que deberia ser el total de velas que tengo, independiente de si son de 1 o mas semanas). Luego ordenar el df de acuerdo a los slopes de mayor a menor, indicando asi las que mejor performance tuvieron.
 
         | coin    | return(this week) | intercept | slope |
@@ -45,11 +42,19 @@ El edge radica en holdear estos activos que tienen un performance superior a la 
 4. OPCIONAL: Crear una BD por cada df, revisar cual es la mejor manera. 
     En realidad todo el analisis deberia hacerse creando df a partir de la bd que hemos creado, pero en realidad no le veo uso real los dataframe son superiores y guardarlo en .pkl o .csv es suficiente.
 
-5. Retornar las 5 coins con mejor slope de la semana pasada, estas son las que se deben comprar. LISTO.
+
 
 #### II. Web App
 
 1. Desplegar el contador de rebalance en la parte de arriba de la pag. (React?)
+    - [ ] Titulo: Mostrar fecha y que semana del año es (js).
+    - [ ] Con JS crear el contador de horas para el rebalance: obtener las 00:00 horas del siguiente lunes que viene y mostrar el contador faltante.
+    - 
+
+
+x. Websocket real price update (esto da dinamismo)
+    - [ ] Con ws jalar los precios realtime de las 5 coins de la semana. Multiplicarlo para tener el precio de cada coin
+    - [ ] Con los valores anteriores obtener el valor total del portfolio.
 
 2. Mostrar la grafica de BTC y su slope como medicion base.
 3. Mostrar las 5 graficas de las altcoins seleccionadas y su slope.
