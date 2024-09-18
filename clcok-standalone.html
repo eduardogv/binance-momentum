@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock Component</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; }
+        #root { display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: #f3f4f6; }
+        .clock-container { background-color: white; padding: 2rem; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center; }
+        .week-title { font-size: 2.25rem; font-weight: bold; margin-bottom: 1rem; }
+        .date { font-size: 1.5rem; margin-bottom: 1.5rem; }
+        .countdown { border: 2px solid black; padding: 1rem; }
+        .countdown-numbers { font-size: 3rem; font-weight: bold; margin-bottom: 0.5rem; }
+        .countdown-labels { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; font-size: 1.25rem; }
+        .rollover-text { margin-top: 0.5rem; font-size: 1.25rem; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const Clock = () => {
+            const [countdown, setCountdown] = React.useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+            React.useEffect(() => {
+                const timer = setInterval(() => {
+                    const now = new Date();
+                    const nextMonday = new Date(now);
+                    nextMonday.setUTCDate(now.getUTCDate() + ((1 + 7 - now.getUTCDay()) % 7));
+                    nextMonday.setUTCHours(0, 0, 0, 0);
+
+                    const diff = nextMonday.getTime() - now.getTime();
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                    setCountdown({ days, hours, minutes, seconds });
+                }, 1000);
+
+                return () => clearInterval(timer);
+            }, []);
+
+            const getWeekNumber = (date) => {
+                const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+                const dayNum = d.getUTCDay() || 7;
+                d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+                const yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+                return Math.ceil((((d - yearStart) / 86400000) + 1)/7);
+            };
+
+            const today = new Date();
+            const weekNumber = getWeekNumber(today);
+            const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+
+            return (
+                <div className="clock-container">
+                    <h1 className="week-title">Week {weekNumber} - {today.getFullYear()}</h1>
+                    <h2 className="date">{today.toLocaleDateString('es-ES', dateOptions)}</h2>
+                    <div className="countdown">
+                        <div className="countdown-numbers">
+                            {countdown.days}:{countdown.hours.toString().padStart(2, '0')}:
+                            {countdown.minutes.toString().padStart(2, '0')}:{countdown.seconds.toString().padStart(2, '0')}
+                        </div>
+                        <div className="countdown-labels">
+                            <div>days</div>
+                            <div>hours</div>
+                            <div>min</div>
+                            <div>sec</div>
+                        </div>
+                        <div className="rollover-text">until next rollover</div>
+                    </div>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<Clock />, document.getElementById('root'));
+    </script>
+</body>
+</html>
