@@ -39,12 +39,13 @@ El edge radica en holdear estos activos que tienen un performance superior a la 
         - [x] Crear una columna en el df que mida el cambio porcentual entre semana. Esto se calcula entre el open de la primera vela y el close de la ultima vela.
 
 
-4. OPCIONAL: Crear una BD por cada df, revisar cual es la mejor manera. 
-    En realidad todo el analisis deberia hacerse creando df a partir de la bd que hemos creado, pero en realidad no le veo uso real los dataframe son superiores y guardarlo en .pkl o .csv es suficiente.
+#### II. Database
+1. Models
+    - [ ] Crear un modelo TOP_COINS que guarde las monedas de mayor volumen.
+    - [ ] Crear un modelo maestro, donde anyado una columna que indica el token
 
 
-
-#### II. Web App
+#### III. Web App
 
 1. Desplegar el contador de rebalance en la parte de arriba de la pag. (React?)
     - [ ] Titulo: Mostrar fecha y que semana del año es (js).
