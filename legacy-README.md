@@ -48,10 +48,9 @@ El edge radica en holdear estos activos que tienen un performance superior a la 
 #### III. Web App
 
 1. Desplegar el contador de rebalance en la parte de arriba de la pag. (React?)
-    - [x] Titulo: Mostrar fecha y que semana del año es (js).
-    - [x] Con JS crear el contador de horas para el rebalance: obtener las 00:00 horas del siguiente lunes que viene y mostrar el contador faltante.
-    - [ ] El contador  esta en UTC-5, hay que cambiarlo a UTC.
-    
+    - [ ] Titulo: Mostrar fecha y que semana del año es (js).
+    - [ ] Con JS crear el contador de horas para el rebalance: obtener las 00:00 horas del siguiente lunes que viene y mostrar el contador faltante.
+    - 
 
 
 x. Websocket real price update (esto da dinamismo)
