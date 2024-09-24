@@ -12,18 +12,19 @@ El edge radica en holdear estos activos que tienen un performance superior a la 
 #### I. Data Analysis
 
 1. Obtiene las X(200) coins con mayor volumen de Binance. Lo retorna en una lista ordenada de mayor a menor volumen.
-    - tambien retorna un df
-    - [x] DONE
+    - [x] Sigue apareciendo WBTC y AUTION. eliminarlos.
 
 2. Obtiene la data de klines de cada coin y la guarda en la carpeta local /data en formato .csv.
     - La funcion actualmente usa una fecha de referencia y un lookback (en dias) para calcular la fecha de inicio de la obtencion de datos. Esto me parece demasiado complicado, además hace referencia a la antigua version de hacer la tarea de Ansem (comparar los lows de agosto y julio para luego checar cual es el que subio más)
     
     - TODO: 
-        - [x] Crear otro notebook para analizar Ansem y copiar ahi la funcion que tengo.
         - [x] Eliminar de la función la fecha de referencia, la fecha low pero mantener el loopback en  semanas.
         - [x] Agregar una fecha de termino de la busqueda.
         - [x] Cambiar el request usando el wraper y cambiarlo para que use la API (mejor para CS50)
-        - [ ] Se estan guardando csv que no tienen data, limpiar. Validar en el if status==200 tambien validar la longitud de la respuesta.
+        - [x] Se estan guardando csv que no tienen data, limpiar. Validar en el if status==200 tambien validar la longitud de la respuesta.
+        - [x] Guardado en base de datos listo en la aplicacion.
+        - [ ] Hacer que guarde datos historicos, no solo los ultimos 7 dias. Necesario para poder obtener la data de esta semana y de la semana pasada. Guardar de 14 dias para poder mostrar en la aplicacion.
+        - [ ] Crear un nuevo csv o una nueva bD para que guarde los 5 ganadores de cada semana, que no se chanque si no que siempre los actualice. Guardar el retorno de la semana de esa coin.
 
 3. Data Processing: Leer cada archivo .csv y crear un df para cada uno. 
     - TODO:
@@ -37,13 +38,21 @@ El edge radica en holdear estos activos que tienen un performance superior a la 
         | DOGEBTC |                   |           |       |
 
         - [x] Crear una columna en el df que mida el cambio porcentual entre semana. Esto se calcula entre el open de la primera vela y el close de la ultima vela.
+        - [ ] Obtener los resultados de la semana pasada y almacenarlos en csv y base de datos. Debe tener los siguientes datos:
+        | coin    | starting price | current price | return_prc | return_usd  |
+        | ------- | ----------------- | --------- | ----- |
+        | ETHBTC  |                   |           |       |
+        | SOLBTC  |                   |           |       |
+        | DOGEBTC |                   |           |       |
+
+        - [ ] Obtener 
 
 
-#### II. Database
-1. Models
-    - [ ] Crear un modelo TOP_COINS que guarde las monedas de mayor volumen.
-    - [ ] Crear un modelo maestro, donde anyado una columna que indica el token
-
+4. PLOTS.
+    - TODO:
+        - [x] Plotear linechart close price vs BTC y la regresion lineal de los ultimos 7 dias.
+        - [ ] Agregar los valores numericos de slope y intercept.
+        - [ ] Agregar los 
 
 #### III. Web App
 
@@ -51,7 +60,9 @@ El edge radica en holdear estos activos que tienen un performance superior a la 
     - [x] Titulo: Mostrar fecha y que semana del año es (js).
     - [x] Con JS crear el contador de horas para el rebalance: obtener las 00:00 horas del siguiente lunes que viene y mostrar el contador faltante.
     - [ ] El contador  esta en UTC-5, hay que cambiarlo a UTC.
-    
+    - [ ] Arreglar el contador, se ha quedado en -1 dia...
+
+
 
 
 x. Websocket real price update (esto da dinamismo)
